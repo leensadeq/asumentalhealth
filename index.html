@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Wellness for Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Bootstrap Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: var(--primary-color);">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="home.html">Mental Wellness for Students</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Self-Help Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="stories.html">Success Stories</a></li>
+            <li class="nav-item"><a class="nav-link" href="counseling.html">Counseling Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="wellness-tracker.html">Wellness Tracker</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <!-- Hero Section with Bootstrap Grid -->
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <img src="images/mental-wellness.jpeg" alt="Students relaxing on campus" class="img-fluid rounded mb-4" style="max-height: 400px; width: 100%; object-fit: cover;">
+          <h1 class="display-4 fw-bold mb-3">Your Mental Wellbeing Matters</h1>
+          <p class="lead">Explore tools, resources, and support for managing mental health and promoting emotional wellness during your educational journey.</p>
+        </div>
+      </div>
+
+      <!-- Bootstrap Cards for Features -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/stress.jpg" class="card-img-top" alt="Student meditating" style="height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Manage Stress</h5>
+              <p class="card-text flex-grow-1">Learn effective techniques to handle academic pressure and exam anxiety.</p>
+              <a href="tools.html" class="btn btn-primary mt-auto">Explore Tools</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/support.jpeg" class="card-img-top" alt="Students in a support circle" style="height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Find Support</h5>
+              <p class="card-text flex-grow-1">Connect with resources and professionals who understand student mental health challenges.</p>
+              <a href="counseling.html" class="btn btn-primary mt-auto">Get Help</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/self-care-illustration.png" class="card-img-top" alt="Self-care activities" style="height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Practice Self-Care</h5>
+              <p class="card-text flex-grow-1">Discover simple daily practices to maintain emotional balance while pursuing your education.</p>
+              <a href="resources.html" class="btn btn-primary mt-auto">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bootstrap Carousel -->
+      <div id="testimonialsCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="text-center p-5" style="background-color: var(--primary-color); border-radius: 10px;">
+              <blockquote class="blockquote">
+                <p class="mb-4">"Taking care of your mental health is just as important as studying for exams. Both are essential parts of your educational journey."</p>
+                <footer class="blockquote-footer">Mental Health Advocate</footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-5" style="background-color: var(--primary-color); border-radius: 10px;">
+              <blockquote class="blockquote">
+                <p class="mb-4">"Getting help wasn't a sign of weakness—it was the strongest thing I could do for myself."</p>
+                <footer class="blockquote-footer">Alex, Student</footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-5" style="background-color: var(--primary-color); border-radius: 10px;">
+              <blockquote class="blockquote">
+                <p class="mb-4">"What helped most was realizing that I wasn't alone – many students struggle with social anxiety, and there are concrete steps you can take to manage it."</p>
+                <footer class="blockquote-footer">Maya, Student</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bootstrap Footer -->
+    <footer class="text-center py-4 mt-5" style="background-color: var(--primary-color);">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 Mental Health Awareness Project. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
