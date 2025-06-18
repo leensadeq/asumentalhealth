@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Help Tools - Mental Wellness for Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Bootstrap Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: var(--primary-color);">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="home.html">Mental Wellness for Students</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+            <li class="nav-item"><a class="nav-link active" href="tools.html">Self-Help Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="stories.html">Success Stories</a></li>
+            <li class="nav-item"><a class="nav-link" href="counseling.html">Counseling Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="wellness-tracker.html">Wellness Tracker</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <!-- Header Section -->
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <img src="images/self-help-hero.jpg" alt="Student practicing mindfulness" class="img-fluid rounded mb-4" style="max-height: 300px; width: 100%; object-fit: cover;">
+          <h1 class="display-5 fw-bold mb-4">Self-Help Tools & Activities</h1>
+          <p class="lead">Explore our collection of practical tools designed specifically for students to manage stress, anxiety, and promote overall mental wellbeing. Regular practice of these techniques can help you maintain balance during your academic journey.</p>
+        </div>
+      </div>
+
+      <!-- Breathing Exercise -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-lg-8">
+                  <h3 class="card-title">5-Minute Breathing Exercise</h3>
+                  <p class="card-text">This quick breathing technique can help reduce anxiety before exams or presentations. Practice anywhere, anytime you need to center yourself.</p>
+                  
+                  <h5 class="mt-4">How to practice:</h5>
+                  <ol class="list-group list-group-numbered list-group-flush">
+                    <li class="list-group-item">Find a comfortable seated position</li>
+                    <li class="list-group-item">Breathe in through your nose for 4 counts</li>
+                    <li class="list-group-item">Hold your breath for 2 counts</li>
+                    <li class="list-group-item">Exhale slowly through your mouth for 6 counts</li>
+                    <li class="list-group-item">Repeat for 5 minutes</li>
+                  </ol>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guided Meditation -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title">Guided Meditation for Focus</h3>
+              <p class="card-text mb-4">Improve your concentration and focus with this 10-minute guided meditation designed for students.</p>
+              
+              <div class="row align-items-center">
+                <div class="col-lg-8">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/ausxoXBrmWs?si=0tYLVGt59W7z0kz_" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="alert alert-info" role="alert">
+                    <h6 class="alert-heading">Tip:</h6>
+                    <p class="mb-0">Listen to this meditation before studying to clear your mind and enhance your ability to absorb information.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stress Assessment -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title">Stress Self-Assessment</h3>
+              <p class="card-text mb-4">Understand your current stress levels and get personalized recommendations.</p>
+              
+              <form id="stressAssessment">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h5 class="mb-3">On a scale of 1-5, rate the following:</h5>
+                    
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">1. How often do you feel overwhelmed by academic work?</label>
+                      <div class="btn-group d-flex" role="group">
+                        <input type="radio" class="btn-check" name="q1" id="q1-1" value="1">
+                        <label class="btn btn-outline-primary" for="q1-1">1 (Never)</label>
+                        <input type="radio" class="btn-check" name="q1" id="q1-2" value="2">
+                        <label class="btn btn-outline-primary" for="q1-2">2</label>
+                        <input type="radio" class="btn-check" name="q1" id="q1-3" value="3">
+                        <label class="btn btn-outline-primary" for="q1-3">3</label>
+                        <input type="radio" class="btn-check" name="q1" id="q1-4" value="4">
+                        <label class="btn btn-outline-primary" for="q1-4">4</label>
+                        <input type="radio" class="btn-check" name="q1" id="q1-5" value="5">
+                        <label class="btn btn-outline-primary" for="q1-5">5 (Daily)</label>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">2. How well do you sleep during academic terms?</label>
+                      <div class="btn-group d-flex" role="group">
+                        <input type="radio" class="btn-check" name="q2" id="q2-1" value="1">
+                        <label class="btn btn-outline-primary" for="q2-1">1 (Very poorly)</label>
+                        <input type="radio" class="btn-check" name="q2" id="q2-2" value="2">
+                        <label class="btn btn-outline-primary" for="q2-2">2</label>
+                        <input type="radio" class="btn-check" name="q2" id="q2-3" value="3">
+                        <label class="btn btn-outline-primary" for="q2-3">3</label>
+                        <input type="radio" class="btn-check" name="q2" id="q2-4" value="4">
+                        <label class="btn btn-outline-primary" for="q2-4">4</label>
+                        <input type="radio" class="btn-check" name="q2" id="q2-5" value="5">
+                        <label class="btn btn-outline-primary" for="q2-5">5 (Very well)</label>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">3. How often do you take intentional breaks while studying?</label>
+                      <div class="btn-group d-flex" role="group">
+                        <input type="radio" class="btn-check" name="q3" id="q3-1" value="1">
+                        <label class="btn btn-outline-primary" for="q3-1">1 (Never)</label>
+                        <input type="radio" class="btn-check" name="q3" id="q3-2" value="2">
+                        <label class="btn btn-outline-primary" for="q3-2">2</label>
+                        <input type="radio" class="btn-check" name="q3" id="q3-3" value="3">
+                        <label class="btn btn-outline-primary" for="q3-3">3</label>
+                        <input type="radio" class="btn-check" name="q3" id="q3-4" value="4">
+                        <label class="btn btn-outline-primary" for="q3-4">4</label>
+                        <input type="radio" class="btn-check" name="q3" id="q3-5" value="5">
+                        <label class="btn btn-outline-primary" for="q3-5">5 (Regularly)</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-lg-6">
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">4. How would you rate your current self-care practices?</label>
+                      <div class="btn-group d-flex" role="group">
+                        <input type="radio" class="btn-check" name="q4" id="q4-1" value="1">
+                        <label class="btn btn-outline-primary" for="q4-1">1 (Non-existent)</label>
+                        <input type="radio" class="btn-check" name="q4" id="q4-2" value="2">
+                        <label class="btn btn-outline-primary" for="q4-2">2</label>
+                        <input type="radio" class="btn-check" name="q4" id="q4-3" value="3">
+                        <label class="btn btn-outline-primary" for="q4-3">3</label>
+                        <input type="radio" class="btn-check" name="q4" id="q4-4" value="4">
+                        <label class="btn btn-outline-primary" for="q4-4">4</label>
+                        <input type="radio" class="btn-check" name="q4" id="q4-5" value="5">
+                        <label class="btn btn-outline-primary" for="q4-5">5 (Excellent)</label>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">5. How connected do you feel to others around you?</label>
+                      <div class="btn-group d-flex" role="group">
+                        <input type="radio" class="btn-check" name="q5" id="q5-1" value="1">
+                        <label class="btn btn-outline-primary" for="q5-1">1 (Very isolated)</label>
+                        <input type="radio" class="btn-check" name="q5" id="q5-2" value="2">
+                        <label class="btn btn-outline-primary" for="q5-2">2</label>
+                        <input type="radio" class="btn-check" name="q5" id="q5-3" value="3">
+                        <label class="btn btn-outline-primary" for="q5-3">3</label>
+                        <input type="radio" class="btn-check" name="q5" id="q5-4" value="4">
+                        <label class="btn btn-outline-primary" for="q5-4">4</label>
+                        <input type="radio" class="btn-check" name="q5" id="q5-5" value="5">
+                        <label class="btn btn-outline-primary" for="q5-5">5 (Very connected)</label>
+                      </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="calculateStress()">Calculate My Stress Level</button>
+                    
+                    <div id="stressResult" class="alert alert-info mt-3" style="display: none;">
+                      <h6 class="alert-heading">Your Stress Assessment Result:</h6>
+                      <p id="stressScore"></p>
+                      <p id="stressRecommendation"></p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gratitude Journal -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title">Daily Gratitude Journal</h3>
+              <p class="card-text mb-4">Take a few minutes each day to reflect on positive aspects of your life and academic journey.</p>
+              
+              <div class="row">
+                <div class="col-lg-6">
+                  <h5 class="mb-3">Today's Prompts:</h5>
+                  <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">What is one thing you learned today that you're grateful for?</li>
+                    <li class="list-group-item">Who is someone at school or in your studies who helped you recently?</li>
+                    <li class="list-group-item">What is one thing about your education that you appreciate?</li>
+                  </ol>
+                </div>
+                <div class="col-lg-6">
+                  <label for="gratitudeText" class="form-label fw-bold">Write your responses here:</label>
+                  <textarea class="form-control" id="gratitudeText" rows="8" placeholder="Take your time to reflect and write your thoughts..."></textarea>
+                  <button type="button" class="btn btn-success mt-2" onclick="saveGratitude()">Save Today's Entry</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Footer -->
+    <footer class="text-center py-4 mt-5" style="background-color: var(--primary-color);">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 Mental Health Awareness Project. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function calculateStress() {
+        const questions = ['q1', 'q2', 'q3', 'q4', 'q5'];
+        let total = 0;
+        let answered = 0;
+
+        questions.forEach(q => {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected) {
+            total += parseInt(selected.value);
+            answered++;
+          }
+        });
+
+        if (answered < 5) {
+          alert('Please answer all questions to get your stress assessment.');
+          return;
+        }
+
+        const average = total / 5;
+        const resultDiv = document.getElementById('stressResult');
+        const scoreP = document.getElementById('stressScore');
+        const recommendationP = document.getElementById('stressRecommendation');
+
+        let level, recommendation;
+
+        if (average <= 2) {
+          level = 'Low Stress Level';
+          recommendation = 'Great job maintaining your mental wellbeing! Continue your current practices and consider helping others who might be struggling.';
+        } else if (average <= 3.5) {
+          level = 'Moderate Stress Level';
+          recommendation = 'You\'re managing reasonably well, but there\'s room for improvement. Try incorporating more self-care activities and regular breaks into your routine.';
+        } else {
+          level = 'High Stress Level';
+          recommendation = 'It seems you\'re experiencing significant stress. Consider speaking with a counselor, practicing daily relaxation techniques, and reviewing your workload. Don\'t hesitate to seek support.';
+        }
+
+        scoreP.textContent = `${level} (Score: ${average.toFixed(1)}/5)`;
+        recommendationP.textContent = recommendation;
+        resultDiv.style.display = 'block';
+      }
+
+      function saveGratitude() {
+        const text = document.getElementById('gratitudeText').value;
+        if (text.trim() === '') {
+          alert('Please write something in your gratitude journal first.');
+          return;
+        }
+        
+        alert('Thank you for taking time to practice gratitude! Your entry has been saved for reflection.');
+        // In a real application, this would save to a database
+        console.log('Gratitude entry saved:', text);
+      }
+    </script>
+  </body>
+</html>      ``
+          

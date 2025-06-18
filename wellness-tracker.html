@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Wellness Tracker - Mental Wellness for Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Bootstrap Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: var(--primary-color);">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="home.html">Mental Wellness for Students</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Self-Help Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="stories.html">Success Stories</a></li>
+            <li class="nav-item"><a class="nav-link" href="counseling.html">Counseling Services</a></li>
+            <li class="nav-item"><a class="nav-link active" href="wellness-tracker.html">Wellness Tracker</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <!-- Date and Time Display -->
+      <div class="row mb-4">
+        <div class="col-12 text-center">
+          <div class="alert alert-info">
+            <h5 class="mb-0">📅 Today is <span id="currentDateTime"></span></h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Section -->
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-5 fw-bold mb-4">Mental Health Wellness Tracker</h1>
+          <p class="lead">Track your mental wellness and get personalized recommendations based on your current state. This self-assessment will help you understand your mental health patterns and provide gentle wellness suggestions.</p>
+        </div>
+      </div>
+
+      <!-- Wellness Tracking Form -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+              <h3 class="card-title mb-0">Mental Health Self-Check</h3>
+            </div>
+            <div class="card-body">
+              <form id="wellnessForm">
+                <div class="row">
+                  <!-- Left Column -->
+                  <div class="col-lg-6">
+                    <!-- Mood Selection -->
+                    <div class="mb-4">
+                      <label for="mood" class="form-label fw-bold">How do you feel today? *</label>
+                      <select class="form-select" id="mood" required>
+                        <option value="">-- Select your mood --</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="okay">Okay</option>
+                        <option value="sad">Sad</option>
+                        <option value="anxious">Anxious</option>
+                        <option value="overwhelmed">Overwhelmed</option>
+                        <option value="depressed">Depressed</option>
+                      </select>
+                      <span id="moodError" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Sleep Hours -->
+                    <div class="mb-4">
+                      <label for="sleepHours" class="form-label fw-bold">Average Sleep Hours (per night) *</label>
+                      <input type="number" class="form-control" id="sleepHours" min="0" max="24" step="0.5" placeholder="e.g., 7.5" required>
+                      <span id="sleepError" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Stress Level -->
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">Stress Level *</label>
+                      <div class="btn-group-vertical d-grid" role="group">
+                        <input type="radio" class="btn-check" name="stressLevel" id="stressLow" value="low">
+                        <label class="btn btn-outline-success" for="stressLow">🟢 Low - Feeling calm and relaxed</label>
+                        
+                        <input type="radio" class="btn-check" name="stressLevel" id="stressMedium" value="medium">
+                        <label class="btn btn-outline-warning" for="stressMedium">🟡 Medium - Some pressure but manageable</label>
+                        
+                        <input type="radio" class="btn-check" name="stressLevel" id="stressHigh" value="high">
+                        <label class="btn btn-outline-danger" for="stressHigh">🔴 High - Feeling overwhelmed and tense</label>
+                      </div>
+                      <span id="stressError" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Exercise -->
+                    <div class="mb-4">
+                      <label for="exerciseHours" class="form-label fw-bold">Exercise Hours (per week) *</label>
+                      <input type="number" class="form-control" id="exerciseHours" min="0" max="50" step="0.5" placeholder="e.g., 3" required>
+                      <div class="form-text">Include any physical activity like walking, sports, gym, etc.</div>
+                      <span id="exerciseError" class="text-danger small"></span>
+                    </div>
+                  </div>
+
+                  <!-- Right Column -->
+                  <div class="col-lg-6">
+                    <!-- Support System -->
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">Who do you feel supported by? (Select all that apply) *</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="family" id="supportFamily">
+                        <label class="form-check-label" for="supportFamily">👨‍👩‍👧‍👦 Family</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="friends" id="supportFriends">
+                        <label class="form-check-label" for="supportFriends">👥 Friends</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="classmates" id="supportClassmates">
+                        <label class="form-check-label" for="supportClassmates">🎓 Classmates</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="teachers" id="supportTeachers">
+                        <label class="form-check-label" for="supportTeachers">🏫 Teachers/Professors</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="counselor" id="supportCounselor">
+                        <label class="form-check-label" for="supportCounselor">🗣️ Counselor/Therapist</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="none" id="supportNone">
+                        <label class="form-check-label" for="supportNone">❌ None</label>
+                      </div>
+                      <span id="supportError" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Academic Pressure -->
+                    <div class="mb-4">
+                      <label for="academicPressure" class="form-label fw-bold">Academic Pressure Level (1-10) *</label>
+                      <input type="range" class="form-range" id="academicPressure" min="1" max="10" step="1" value="5">
+                      <div class="d-flex justify-content-between">
+                        <small class="text-muted">1 (Very Low)</small>
+                        <span id="pressureValue" class="fw-bold">5</span>
+                        <small class="text-muted">10 (Extreme)</small>
+                      </div>
+                      <span id="pressureError" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Self-Care Activities -->
+                    <div class="mb-4">
+                      <label class="form-label fw-bold">Self-Care Activities (Select all you do regularly) *</label>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="meditation" id="selfCareMeditation">
+                            <label class="form-check-label" for="selfCareMeditation">🧘 Meditation</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="reading" id="selfCareReading">
+                            <label class="form-check-label" for="selfCareReading">📚 Reading</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="music" id="selfCareMusic">
+                            <label class="form-check-label" for="selfCareMusic">🎵 Music</label>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="hobbies" id="selfCareHobbies">
+                            <label class="form-check-label" for="selfCareHobbies">🎨 Hobbies</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="socializing" id="selfCareSocializing">
+                            <label class="form-check-label" for="selfCareSocializing">🗣️ Socializing</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="none" id="selfCareNone">
+                            <label class="form-check-label" for="selfCareNone">❌ None</label>
+                          </div>
+                        </div>
+                      </div>
+                      <span id="selfCareError" class="text-danger small"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">📊 Analyze My Wellness</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="row justify-content-center mt-5" id="resultsSection" style="display: none;">
+        <div class="col-lg-10">
+          <div class="card shadow">
+            <div class="card-header bg-success text-white">
+              <h3 class="card-title mb-0">📋 Your Wellness Report</h3>
+            </div>
+            <div class="card-body">
+              <textarea id="wellnessReport" class="form-control" rows="15" readonly style="font-family: monospace; background-color: #f8f9fa;"></textarea>
+              
+              <div class="mt-4 text-center">
+                <button type="button" class="btn btn-outline-primary" onclick="printReport()">🖨️ Print Report</button>
+                <button type="button" class="btn btn-outline-success" onclick="saveReport()">💾 Save Report</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">🔄 Take Again</button>
+              </div>
+              
+              <!-- Dynamic Action Buttons Based on Results -->
+              <div class="mt-4" id="actionButtons">
+                <h5 class="text-center mb-3">Recommended Next Steps:</h5>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center" id="dynamicButtons">
+                  <!-- Buttons will be added dynamically based on assessment results -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Footer -->
+    <footer class="text-center py-4 mt-5" style="background-color: var(--primary-color);">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 Mental Health Awareness Project. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Display current date and time
+      function updateDateTime() {
+        const now = new Date();
+        const options = { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        };
+        document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+      }
+
+      // Update pressure value display
+      document.getElementById('academicPressure').addEventListener('input', function() {
+        document.getElementById('pressureValue').textContent = this.value;
+      });
+
+      // Form validation and submission
+      document.getElementById('wellnessForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Clear previous errors
+        clearErrors();
+        
+        // Validate all fields
+        let isValid = true;
+        
+        // Validate mood
+        const mood = document.getElementById('mood').value;
+        if (!mood) {
+          showError('moodError', 'Please select your current mood.');
+          isValid = false;
+        }
+        
+        // Validate sleep hours
+        const sleepHours = parseFloat(document.getElementById('sleepHours').value);
+        if (!sleepHours || sleepHours < 0 || sleepHours > 24) {
+          showError('sleepError', 'Please enter valid sleep hours (0-24).');
+          isValid = false;
+        }
+        
+        // Validate stress level
+        const stressLevel = document.querySelector('input[name="stressLevel"]:checked');
+        if (!stressLevel) {
+          showError('stressError', 'Please select your stress level.');
+          isValid = false;
+        }
+        
+        // Validate exercise hours
+        const exerciseHours = parseFloat(document.getElementById('exerciseHours').value);
+        if (exerciseHours === null || exerciseHours === undefined || exerciseHours < 0 || exerciseHours > 50) {
+          showError('exerciseError', 'Please enter valid exercise hours (0-50).');
+          isValid = false;
+        }
+        
+        // Validate support system
+        const supportChecked = document.querySelectorAll('input[type="checkbox"][value="family"], input[type="checkbox"][value="friends"], input[type="checkbox"][value="classmates"], input[type="checkbox"][value="teachers"], input[type="checkbox"][value="counselor"], input[type="checkbox"][value="none"]');
+        let supportSelected = false;
+        supportChecked.forEach(checkbox => {
+          if (checkbox.checked) supportSelected = true;
+        });
+        if (!supportSelected) {
+          showError('supportError', 'Please select at least one support option.');
+          isValid = false;
+        }
+        
+        // Validate self-care activities
+        const selfCareChecked = document.querySelectorAll('input[type="checkbox"][value="meditation"], input[type="checkbox"][value="reading"], input[type="checkbox"][value="music"], input[type="checkbox"][value="hobbies"], input[type="checkbox"][value="socializing"], input[type="checkbox"][value="none"]');
+        let selfCareSelected = false;
+        selfCareChecked.forEach(checkbox => {
+          if (checkbox.checked) selfCareSelected = true;
+        });
+        if (!selfCareSelected) {
+          showError('selfCareError', 'Please select at least one self-care activity option.');
+          isValid = false;
+        }
+        
+        if (isValid) {
+          generateReport();
+        }
+      });
+      
+      function clearErrors() {
+        const errorElements = document.querySelectorAll('[id$="Error"]');
+        errorElements.forEach(element => element.textContent = '');
+      }
+      
+      function showError(elementId, message) {
+        document.getElementById(elementId).textContent = message;
+      }
+      
+      function generateReport() {
+        // Collect form data
+        const mood = document.getElementById('mood').value;
+        const sleepHours = parseFloat(document.getElementById('sleepHours').value);
+        const stressLevel = document.querySelector('input[name="stressLevel"]:checked').value;
+        const exerciseHours = parseFloat(document.getElementById('exerciseHours').value);
+        const academicPressure = parseInt(document.getElementById('academicPressure').value);
+        
+        // Collect support system
+        const supportSystem = [];
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+          if (['family', 'friends', 'classmates', 'teachers', 'counselor', 'none'].includes(checkbox.value)) {
+            supportSystem.push(checkbox.value);
+          }
+        });
+        
+        // Collect self-care activities
+        const selfCareActivities = [];
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+          if (['meditation', 'reading', 'music', 'hobbies', 'socializing', 'none'].includes(checkbox.value)) {
+            selfCareActivities.push(checkbox.value);
+          }
+        });
+        
+        // Calculate wellness score
+        let wellnessScore = 0;
+        
+        // Mood scoring
+        const moodScores = {
+          'excellent': 10, 'good': 8, 'okay': 6, 'sad': 4, 'anxious': 3, 'overwhelmed': 2, 'depressed': 1
+        };
+        wellnessScore += moodScores[mood] || 0;
+        
+        // Sleep scoring (optimal 7-9 hours)
+        if (sleepHours >= 7 && sleepHours <= 9) wellnessScore += 10;
+        else if (sleepHours >= 6 && sleepHours <= 10) wellnessScore += 7;
+        else if (sleepHours >= 5 && sleepHours <= 11) wellnessScore += 4;
+        else wellnessScore += 1;
+        
+        // Stress scoring
+        const stressScores = { 'low': 10, 'medium': 6, 'high': 2 };
+        wellnessScore += stressScores[stressLevel] || 0;
+        
+        // Exercise scoring
+        if (exerciseHours >= 3) wellnessScore += 10;
+        else if (exerciseHours >= 1) wellnessScore += 6;
+        else wellnessScore += 2;
+        
+        // Academic pressure scoring (reverse scale)
+        wellnessScore += Math.max(1, 11 - academicPressure);
+        
+        // Support system scoring
+        if (supportSystem.includes('none')) wellnessScore += 1;
+        else wellnessScore += Math.min(10, supportSystem.length * 2);
+        
+        // Self-care scoring
+        if (selfCareActivities.includes('none')) wellnessScore += 1;
+        else wellnessScore += Math.min(10, selfCareActivities.length * 2);
+        
+        // Generate recommendations with links
+        const recommendations = generateRecommendations(mood, sleepHours, stressLevel, exerciseHours, academicPressure, supportSystem, selfCareActivities);
+        
+        // Create report
+        const report = `
+=== MENTAL HEALTH WELLNESS REPORT ===
+Generated on: ${new Date().toLocaleString()}
+
+=== ASSESSMENT RESULTS ===
+Current Mood: ${mood.charAt(0).toUpperCase() + mood.slice(1)}
+Sleep Hours (per night): ${sleepHours} hours
+Stress Level: ${stressLevel.charAt(0).toUpperCase() + stressLevel.slice(1)}
+Exercise Hours (per week): ${exerciseHours} hours
+Academic Pressure Level: ${academicPressure}/10
+Support System: ${supportSystem.join(', ') || 'None'}
+Self-Care Activities: ${selfCareActivities.join(', ') || 'None'}
+
+=== WELLNESS SCORE ===
+Overall Wellness Score: ${wellnessScore}/70 (${Math.round((wellnessScore/70)*100)}%)
+
+Wellness Level: ${getWellnessLevel(wellnessScore)}
+
+=== PERSONALIZED RECOMMENDATIONS ===
+${recommendations}
+
+=== NEXT STEPS ===
+1. Review your scores and identify areas for improvement
+2. Try implementing 1-2 recommendations this week
+3. Track your progress by retaking this assessment weekly
+4. Consider speaking with a counselor if you're struggling
+5. Remember: seeking help is a sign of strength, not weakness
+
+=== RESOURCES ===
+- University Counseling Center: Visit your student health center
+- Crisis Hotline: +962 7 9544 0416 (24/7)
+- Emergency: Call 911 or go to nearest emergency room
+- Online Resources: Visit our Resources page for more information
+
+=== IMPORTANT NOTE ===
+This assessment is for educational purposes only and does not replace professional medical advice. If you're experiencing persistent mental health concerns, please consult with a qualified healthcare provider.
+
+Report ID: MHW-${Date.now()}
+        `;
+        
+        // Save assessment to track progress
+        saveAssessmentProgress(wellnessScore, mood, new Date().toISOString());
+        
+        // Display report
+        document.getElementById('wellnessReport').value = report;
+        document.getElementById('resultsSection').style.display = 'block';
+        
+        // Generate dynamic action buttons
+        generateActionButtons(mood, sleepHours, stressLevel, exerciseHours, academicPressure, supportSystem, selfCareActivities, wellnessScore);
+        
+        // Scroll to results
+        document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      function getWellnessLevel(score) {
+        if (score >= 60) return 'Excellent - You're doing great with your mental wellness!';
+        else if (score >= 45) return 'Good - You have a solid foundation with room for improvement';
+        else if (score >= 30) return 'Fair - Consider focusing on key areas for better wellness';
+        else return 'Needs Attention - Please consider seeking professional support';
+      }
+      
+      function generateRecommendations(mood, sleepHours, stressLevel, exerciseHours, academicPressure, supportSystem, selfCareActivities) {
+        let recommendations = [];
+        
+        // Mood-based recommendations with links
+        if (['sad', 'anxious', 'overwhelmed', 'depressed'].includes(mood)) {
+          recommendations.push('💙 MOOD SUPPORT: Consider speaking with a counselor or therapist about your current feelings.');
+          recommendations.push('   → Visit our Counseling Services page: counseling.html');
+          recommendations.push('🌱 DAILY PRACTICE: Try our 5-minute breathing exercise when feeling overwhelmed.');
+          recommendations.push('   → Find breathing exercises on: tools.html');
+        }
+        
+        // Sleep recommendations
+        if (sleepHours < 7) {
+          recommendations.push(`😴 SLEEP IMPROVEMENT: You're getting ${sleepHours} hours of sleep. Aim for 7-9 hours for optimal mental health.`);
+          recommendations.push('   → Learn about sleep and academic performance: resources.html');
+          recommendations.push('🌙 SLEEP HYGIENE: Create a bedtime routine and avoid screens 1 hour before bed.');
+        } else if (sleepHours > 10) {
+          recommendations.push('⏰ SLEEP BALANCE: Consider evaluating if excessive sleep might indicate underlying concerns.');
+          recommendations.push('   → Read about recognizing depression: resources.html');
+        }
+        
+        // Stress recommendations
+        if (stressLevel === 'high') {
+          recommendations.push('🧘 STRESS MANAGEMENT: Practice daily meditation or mindfulness exercises.');
+          recommendations.push('   → Try our guided meditation: tools.html');
+          recommendations.push('📚 STUDY TECHNIQUES: Break study sessions into smaller chunks with regular breaks.');
+          recommendations.push('   → Read stress management tips: resources.html');
+        }
+        
+        // Exercise recommendations
+        if (exerciseHours < 2) {
+          recommendations.push(`🏃 PHYSICAL ACTIVITY: You're exercising ${exerciseHours} hours/week. Try to increase to at least 3 hours for better mental health.`);
+          recommendations.push('🚶 START SMALL: Even a 15-minute daily walk can significantly improve mood.');
+          recommendations.push('   → Read about self-care activities: resources.html');
+        }
+        
+        // Academic pressure recommendations
+        if (academicPressure >= 8) {
+          recommendations.push('📖 ACADEMIC BALANCE: Your academic pressure is very high. Consider discussing workload with professors or advisors.');
+          recommendations.push('   → Read Alex\'s story about finding balance: stories.html');
+          recommendations.push('⏱️ TIME MANAGEMENT: Use techniques like the Pomodoro method to manage study time effectively.');
+          recommendations.push('   → Learn time management for mental wellbeing: resources.html');
+        }
+        
+        // Support system recommendations
+        if (supportSystem.includes('none') || supportSystem.length <= 1) {
+          recommendations.push('👥 BUILD CONNECTIONS: Consider joining study groups, clubs, or campus activities to build your support network.');
+          recommendations.push('   → Read Maya\'s journey with social anxiety: stories.html');
+          recommendations.push('🗣️ REACH OUT: Don\'t hesitate to connect with classmates, family, or counseling services.');
+          recommendations.push('   → Get emergency help and contact information: contact.html');
+        }
+        
+        // Self-care recommendations
+        if (selfCareActivities.includes('none') || selfCareActivities.length <= 1) {
+          recommendations.push('🌸 SELF-CARE: Incorporate at least one enjoyable activity into your daily routine.');
+          recommendations.push('   → Try our self-help tools and activities: tools.html');
+          recommendations.push('🎨 EXPLORE HOBBIES: Try new activities like art, music, reading, or sports to find what brings you joy.');
+          recommendations.push('   → Read about practicing self-care: resources.html');
+        }
+        
+        // General recommendations with specific links
+        recommendations.push('📱 DIGITAL WELLNESS: Consider limiting social media if it affects your mood negatively.');
+        recommendations.push('🍎 NUTRITION: Maintain a balanced diet to support both physical and mental health.');
+        recommendations.push('📖 INSPIRATION: Read success stories from other students who overcame similar challenges.');
+        recommendations.push('   → Visit our Success Stories page: stories.html');
+        
+        return recommendations.join('\n');
+      }
+      
+      function printReport() {
+        const reportContent = document.getElementById('wellnessReport').value;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+          <html>
+            <head><title>Mental Health Wellness Report</title></head>
+            <body style="font-family: monospace; padding: 20px;">
+              <pre>${reportContent}</pre>
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+      }
+      
+      function saveReport() {
+        const reportContent = document.getElementById('wellnessReport').value;
+        const blob = new Blob([reportContent], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `wellness-report-${new Date().toISOString().split('T')[0]}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }
+      
+      // Progress tracking functions
+      function saveAssessmentProgress(score, mood, date) {
+        let progressData = JSON.parse(localStorage.getItem('wellnessProgress') || '[]');
+        
+        // Add new assessment
+        progressData.push({
+          date: date,
+          score: score,
+          mood: mood,
+          timestamp: new Date().getTime()
+        });
+        
+        // Keep only last 10 assessments
+        if (progressData.length > 10) {
+          progressData = progressData.slice(-10);
+        }
+        
+        localStorage.setItem('wellnessProgress', JSON.stringify(progressData));
+        localStorage.setItem('lastWellnessAssessment', new Date().getTime());
+        
+        // Show progress if multiple assessments exist
+        if (progressData.length > 1) {
+          showProgressComparison(progressData);
+        }
+      }
+      
+      function showProgressComparison(progressData) {
+        const current = progressData[progressData.length - 1];
+        const previous = progressData[progressData.length - 2];
+        
+        const scoreDiff = current.score - previous.score;
+        const progressContainer = document.getElementById('dynamicButtons');
+        
+        let progressHtml = '<div class="alert alert-info mt-3"><h6>📈 Progress Update:</h6>';
+        
+        if (scoreDiff > 0) {
+          progressHtml += `<p class="mb-2">Great news! Your wellness score improved by ${scoreDiff} points since your last assessment.</p>`;
+          progressHtml += '<span class="badge bg-success">Improving ↗️</span>';
+        } else if (scoreDiff < 0) {
+          progressHtml += `<p class="mb-2">Your wellness score decreased by ${Math.abs(scoreDiff)} points. Consider focusing on the recommendations above.</p>`;
+          progressHtml += '<span class="badge bg-warning text-dark">Needs Attention ↘️</span>';
+        } else {
+          progressHtml += '<p class="mb-2">Your wellness score remained stable since your last assessment.</p>';
+          progressHtml += '<span class="badge bg-info">Stable ➡️</span>';
+        }
+        
+        progressHtml += `<br><small class="text-muted">Previous: ${previous.score}/70 → Current: ${current.score}/70</small></div>`;
+        
+        progressContainer.innerHTML += progressHtml;
+      }
+      
+      function generateActionButtons(mood, sleepHours, stressLevel, exerciseHours, academicPressure, supportSystem, selfCareActivities, wellnessScore) {
+        const buttonContainer = document.getElementById('dynamicButtons');
+        buttonContainer.innerHTML = ''; // Clear previous buttons
+        
+        // Always show general resources
+        buttonContainer.innerHTML += '<a href="resources.html" class="btn btn-primary me-2 mb-2">📚 Explore Resources</a>';
+        
+        // Conditional buttons based on assessment results
+        if (['sad', 'anxious', 'overwhelmed', 'depressed'].includes(mood) || wellnessScore < 35) {
+          buttonContainer.innerHTML += '<a href="counseling.html" class="btn btn-warning me-2 mb-2">🗣️ Find Professional Help</a>';
+          buttonContainer.innerHTML += '<a href="contact.html" class="btn btn-danger me-2 mb-2">🆘 Emergency Contacts</a>';
+        }
+        
+        if (stressLevel === 'high' || academicPressure >= 7) {
+          buttonContainer.innerHTML += '<a href="tools.html" class="btn btn-info me-2 mb-2">🧘 Try Stress Relief Tools</a>';
+        }
+        
+        if (supportSystem.includes('none') || supportSystem.length <= 1) {
+          buttonContainer.innerHTML += '<a href="stories.html" class="btn btn-success me-2 mb-2">💪 Read Success Stories</a>';
+        }
+        
+        if (selfCareActivities.includes('none') || selfCareActivities.length <= 1) {
+          buttonContainer.innerHTML += '<a href="tools.html#selfcare" class="btn btn-secondary me-2 mb-2">🌸 Learn Self-Care</a>';
+        }
+        
+        // Always show about page to learn more about the team
+        buttonContainer.innerHTML += '<a href="about.html" class="btn btn-outline-primary me-2 mb-2">👥 About Our Team</a>';
+      }
+      
+      function resetForm() {
+        document.getElementById('wellnessForm').reset();
+        document.getElementById('resultsSection').style.display = 'none';
+        document.getElementById('pressureValue').textContent = '5';
+        clearErrors();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
+      // Initialize
+      updateDateTime();
+      setInterval(updateDateTime, 60000); // Update every minute
+    </script>
+  </body>
+</html>
